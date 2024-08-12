@@ -62,8 +62,16 @@ public class DateTimeTest {
 
         assertEquals(LocalDate.from(thaiBuddhistDate), LocalDate.from(pastTemporalDateProximity.adjustInto(localDateTime1)));
         assertEquals(hijarahDate2, pastTemporalDateProximity.adjustInto(HijrahDate.of(1447, 10, 10)));
+        assertEquals(LocalDate.from(localDateTime1), LocalDate.from(pastTemporalDateProximity.adjustInto(LocalDateTime.of(2024, 10, 20, 3, 8, 3))));
 
         assertEquals(null, pastTemporalDateProximity.adjustInto(minguoDate1));
         assertEquals(null, pastTemporalDateProximity.adjustInto(thaiBuddhistDate));
+        assertEquals(null, pastTemporalDateProximity.adjustInto(LocalDate.of(2024, 8, 8)));
+
+        Temporal[] temporals1 = {localDate1};
+
+        PastTemporalDateProximity pastTemporalDateProximity1 = new PastTemporalDateProximity(temporals1);
+        assertEquals(LocalDate.from(localDate1), LocalDate.from(pastTemporalDateProximity1.adjustInto(localDateTime1)));
+
     }
 }

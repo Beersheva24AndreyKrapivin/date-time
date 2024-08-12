@@ -24,7 +24,7 @@ public class PastTemporalDateProximity implements TemporalAdjuster{
         Temporal res = null;
         int index = binarySearchTemporal(temporal);
 
-        if (index > 0) {
+        if (index >= 0) {
             long amount = LocalDate.from(temporal).until(LocalDate.from(temporals[index]), ChronoUnit.DAYS);
             res = temporal.plus(amount, ChronoUnit.DAYS);   
         }
