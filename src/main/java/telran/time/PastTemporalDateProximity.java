@@ -48,7 +48,7 @@ public class PastTemporalDateProximity implements TemporalAdjuster{
             middleIndex = (first + last) / 2;
         }
 
-        return last < 0 ? last : middleIndex;
+        return last;
     }
 
 }
